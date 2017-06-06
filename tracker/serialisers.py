@@ -5,11 +5,11 @@ from tracker.models import Bus, Location
 class BusSerializer(serializers.ModelSerializer):
     class Meta:
         model = Bus
-        field = ('nfc_id', 'bus_id')
+        fields = '__all__'
 
 class LocationSerializer(serializers.ModelSerializer):
-    bus = BusSerializer()
+    ID = BusSerializer()
     class Meta:
         model = Location
-        field = ('latitude', 'longitude', 'bus')
+        fields = '__all__'
 # Create your views here.

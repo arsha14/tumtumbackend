@@ -11,7 +11,7 @@ class Bus(models.Model):
 class Location(models.Model):
     latitude = models.FloatField()
     longitude = models.FloatField()
-    tag_id = models.ForeignKey(Bus)
+    ID = models.ForeignKey(Bus)
     updated_time = models.DateTimeField(auto_now = True)
 
 
