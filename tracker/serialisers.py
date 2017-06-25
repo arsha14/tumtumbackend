@@ -12,4 +12,13 @@ class LocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Location
         fields = '__all__'
+    
+
+    loc = Location
+    def create(self, loc):
+        latitude = loc.latitude
+        longitude = loc.longitude
+        ID.bus_id = loc.ID.bus_id
+        ID.nfc_id = loc.ID.nfc_id
+
 # Create your views here.

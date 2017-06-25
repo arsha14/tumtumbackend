@@ -4,8 +4,8 @@ from tracker import views
 
 
 urlpatterns = (
-    url(r'^api/$', views.LocationList.as_view()),
-    url(r'^api/(?P<pk>[0-9]+)/$', views.LocationDetail.as_view()),
+    url(r'^api/$', views.LocationList),
+    url(r'^api/(?P<pk>[0-9]+)/$', views.LocationDetail),
     )
 
 urlpatterns = format_suffix_patterns(urlpatterns)    
