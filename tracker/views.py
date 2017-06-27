@@ -32,7 +32,7 @@ def LocationList(request):
         serializer_class = LocationSerializer(data=request.data)
         if serializer_class.is_valid():
             serializer_class.save()
-            return Response(serializer_class.data, status=status.HTTP_201_CREATED)
+            return Response(serializer_class.validated_data, status=status.HTTP_201_CREATED)
         return Response(serializer_class.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -51,7 +51,7 @@ def LocationDetail(request, pk):
         serializer_class = LocationSerializer(queryset, data=request.data)
         if serializer_class.is_valid():
             serializer_class.save()
-            return Response(serializer_class.data)
+            return Response(serializer_class.validated_data)
         return Response(serializer_class.errors, status=status.HTTP_400_BAD_REQUEST)
 
     elif request.method == 'DELETE':

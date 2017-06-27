@@ -8,11 +8,20 @@ class Bus(models.Model):
     nfc_id = models.IntegerField()
     bus_id = models.IntegerField()
 
+    def __unicode__(self):
+        return self
+
 class Location(models.Model):
     latitude = models.FloatField()
     longitude = models.FloatField()
-    ID = models.ForeignKey(Bus)
+    ID = models.ForeignKey(Bus, null=True)
     updated_time = models.DateTimeField(auto_now = True)
+
+
+    def __unicode__(self):
+        return self
+    
+    
 
 
 

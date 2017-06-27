@@ -15,10 +15,18 @@ class LocationSerializer(serializers.ModelSerializer):
 
 
 
-    def create(self, data):
-        self.latitude = data["latitude"]
-        self.longitude = data["longitude"]
-        self.ID.bus_id = data["ID"]["bus_id"]
-        self.ID.nfc_id = data["ID"]["nfc_id"]
+    def create(self, validated_data):
+        ID_data = validated_data.pop('ID')
+        location = Location.objects.create(**validated_data)
+        Bus.objects.create(location=location, **ID_data)
+        return location
+    #    loc = self.Meta.Location
+    #    self.Meta.Location.create_loc(loc, data)
+    #    self = Location
+    #    self.latitude = validated_data["latitude"]
+    #    self.longitude = validated_data["longitude"]
+    #    self.ID.bus_id = validated_data["ID"]["bus_id"]
+    #    self.ID.nfc_id = validated_data["ID"]["nfc_id"]
+    #    return self
 
 # Create your views here.
