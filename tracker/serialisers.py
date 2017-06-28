@@ -8,7 +8,7 @@ class BusSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class LocationSerializer(serializers.ModelSerializer):
-    ID = BusSerializer()
+    bus = BusSerializer()
     class Meta:
         model = Location
         fields = '__all__'
@@ -16,9 +16,9 @@ class LocationSerializer(serializers.ModelSerializer):
 
 
     def create(self, validated_data):
-        ID_data = validated_data.pop('ID')
+        bus_data = validated_data.pop('bus')
         location = Location.objects.create(**validated_data)
-        Bus.objects.create(location=location, **ID_data)
+        Bus.objects.create(location=location, **bus_data)
         return location
     #    loc = self.Meta.Location
     #    self.Meta.Location.create_loc(loc, data)
