@@ -1,18 +1,21 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.db import models
-import requests
-
-
-class Bus(models.Model):
-    nfc_id = models.IntegerField()
-
 
 class Location(models.Model):
+    bus_id = models.IntegerField()
+    nfc_id = models.IntegerField()
     latitude = models.FloatField()
     longitude = models.FloatField()
-    bus = models.ForeignKey(Bus, null=True)
     updated_time = models.DateTimeField(auto_now=True)
+
+
+
+
+
+
+
+
 
     """def save(self, *args, **kwargs):
         response = requests.get("http://127.0.0.1:8000/?format=json")

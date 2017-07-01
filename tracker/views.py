@@ -1,27 +1,27 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from rest_framework import status
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
+#from rest_framework.decorators import api_view
+#from rest_framework.response import Response
 from models import Location
-#from django.shortcuts import render
-#from rest_framework import generics
+from django.shortcuts import render
+from rest_framework import generics
 from serialisers import LocationSerializer
 
 
 
-#class LocationList(generics.ListCreateAPIView):
- #   queryset = Location.objects.all()
-  #  serializer_class = LocationSerializer
+class LocationList(generics.ListCreateAPIView):
+    queryset = Location.objects.all()
+    serializer_class = LocationSerializer
 
 
 
-#class LocationDetail(generics.RetrieveDestroyAPIView):
- #   queryset = Location.objects.all()
-  #  serializer_class = LocationSerializer
+class LocationDetail(generics.RetrieveDestroyAPIView):
+    queryset = Location.objects.all()
+    serializer_class = LocationSerializer
 # Create your views here.
 
-@api_view(['GET', 'POST'])
+"""@api_view(['GET', 'POST'])
 def LocationList(request):
     if request.method == 'GET':
         queryset = Location.objects.all()
@@ -56,5 +56,5 @@ def LocationDetail(request, pk):
 
     elif request.method == 'DELETE':
         queryset.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(status=status.HTTP_204_NO_CONTENT)"""
 
