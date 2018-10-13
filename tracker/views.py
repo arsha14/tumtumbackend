@@ -21,7 +21,7 @@ class LocationDetail(generics.RetrieveDestroyAPIView):
     serializer_class = LocationSerializer
 # Create your views here.
 
-"""@api_view(['GET', 'POST'])
+@api_view(['GET', 'POST'])
 def LocationList(request):
     if request.method == 'GET':
         queryset = Location.objects.all()
@@ -56,5 +56,5 @@ def LocationDetail(request, pk):
 
     elif request.method == 'DELETE':
         queryset.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)"""
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
